@@ -188,7 +188,7 @@ Deploy directly using cloud services (Badges are active to open their respective
 
 ```bash
 # Clone the repository
-git clone https://github.com/Unrated-Coder/telegram-file-store.git
+git clone https://github.com/Unrated-Coder/Telegram-File-Store.git
 cd telegram-file-store
 
 # Install required dependencies
