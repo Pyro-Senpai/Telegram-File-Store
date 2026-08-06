@@ -134,6 +134,14 @@ Unsuccessful: <code>{unsuccessful}</code></b>"""
         await msg.delete()
 
 
+async def delete_msg_after(msg, duration):
+    try:
+        await asyncio.sleep(duration)
+        await msg.delete()
+    except Exception:
+        pass
+
+
 @Bot.on_message(filters.private & filters.command('dbroadcast'))
 async def delete_broadcast(client: Bot, message: Message):
     if not await check_admin_or_owner(message):
@@ -154,14 +162,12 @@ async def delete_broadcast(client: Bot, message: Message):
         for chat_id in query:
             try:
                 sent_msg = await broadcast_msg.copy(chat_id)
-                await asyncio.sleep(duration)
-                await sent_msg.delete()
+                asyncio.create_task(delete_msg_after(sent_msg, duration))
                 successful += 1
             except FloodWait as e:
                 await asyncio.sleep(e.x)
                 sent_msg = await broadcast_msg.copy(chat_id)
-                await asyncio.sleep(duration)
-                await sent_msg.delete()
+                asyncio.create_task(delete_msg_after(sent_msg, duration))
                 successful += 1
             except UserIsBlocked:
                 await db.del_user(chat_id)
