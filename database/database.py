@@ -251,6 +251,22 @@ class Rohit:
         else:
             return False
 
+    @connection_check(default_return=True)
+    async def get_retrieve_status(self):
+        data = await self.database['settings'].find_one({'_id': 'retrieve_status'})
+        if data:
+            return data.get('value', True)
+        return True
+
+    @connection_check(default_return=False)
+    async def set_retrieve_status(self, value: bool):
+        await self.database['settings'].update_one(
+            {'_id': 'retrieve_status'},
+            {'$set': {'value': value}},
+            upsert=True
+        )
+        return True
+
 
 db = Rohit(DB_URI, DB_NAME)
 
