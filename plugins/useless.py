@@ -85,6 +85,22 @@ async def check_delete_time(client: Bot, message: Message):
 
     await message.reply(f"<b><blockquote>Cᴜʀʀᴇɴᴛ ᴅᴇʟᴇᴛᴇ ᴛɪᴍᴇʀ ɪs sᴇᴛ ᴛᴏ {duration}sᴇᴄᴏɴᴅs.</blockquote></b>")
 
+
+@Bot.on_message(filters.private & filters.command('retrieve_on'))
+async def retrieve_on_command(client: Bot, message: Message):
+    if not await check_admin_or_owner(message):
+        return
+    await db.set_retrieve_status(True)
+    await message.reply("<b><blockquote>Rᴇᴛʀɪᴇᴠᴇ Oɴ! Dᴇʟᴇᴛɪᴏɴ ᴀʟᴇʀᴛ ᴍᴇssᴀɢᴇ ᴡɪʟʟ ʙᴇ sʜᴏᴡɴ ᴀɴᴅ 'ɢᴇᴛ ғɪʟᴇ ᴀɢᴀɪɴ' ʙᴜᴛᴛᴏɴ ᴡɪʟʟ ʙᴇ ᴀᴄᴛɪᴠᴇ. ✅</blockquote></b>")
+
+
+@Bot.on_message(filters.private & filters.command('retrieve_off'))
+async def retrieve_off_command(client: Bot, message: Message):
+    if not await check_admin_or_owner(message):
+        return
+    await db.set_retrieve_status(False)
+    await message.reply("<b><blockquote>Rᴇᴛʀɪᴇᴠᴇ Oғғ! Dᴇʟᴇᴛɪᴏɴ ᴀʟᴇʀᴛ ᴍᴇssᴀɢᴇ ᴡɪʟʟ ʙᴇ ᴅᴇʟᴇᴛᴇᴅ ᴇɴᴛɪʀᴇʟʏ ᴀғᴛᴇʀ ғɪʟᴇs ᴀʀᴇ ᴠᴀɴɪsʜᴇᴅ. ❌</blockquote></b>")
+
 # =====================================================================================##
 #                         ✨ MADE BY UNRATED CODER ✨
 #                  Join Updates Channel: https://t.me/UNRATED_CODER
