@@ -52,14 +52,14 @@ async def help_command(client: Client, message: Message):
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("• ᴀᴅᴍɪɴ ᴄᴏᴍᴍᴀɴᴅꜱ •", callback_data="admin_cmds")
+                    InlineKeyboardButton("• ᴀᴅᴍɪɴ ᴄᴏᴍᴍᴀɴᴅꜱ •", callback_data="admin_cmds", style="primary")
                 ],
                 [
-                    InlineKeyboardButton("• ᴏᴡɴᴇʀ", url="https://t.me/UNRATED_CODER"),
-                    InlineKeyboardButton("sᴜᴘᴘᴏʀᴛ •", url="https://t.me/UNRATED_CODER")
+                    InlineKeyboardButton("• ᴏᴡɴᴇʀ", url="https://t.me/UNRATED_CODER", style="success"),
+                    InlineKeyboardButton("sᴜᴘᴘᴏʀᴛ •", url="https://t.me/UNRATED_CODER", style="success")
                 ],
                 [
-                    InlineKeyboardButton("• ᴊᴏɪɴ ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ •", url="https://t.me/UNRATED_CODER")
+                    InlineKeyboardButton("• ᴊᴏɪɴ ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ •", url="https://t.me/UNRATED_CODER", style="success")
                 ],
             ]
         )
@@ -87,7 +87,7 @@ async def admin_cmds_callback(client: Client, callback_query):
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("• ʙᴀᴄᴋ ᴛᴏ ʜᴇʟᴘ •", callback_data="back_to_help")
+                    InlineKeyboardButton("• ʙᴀᴄᴋ ᴛᴏ ʜᴇʟᴘ •", callback_data="back_to_help", style="success")
                 ]
             ]
         )
@@ -108,14 +108,14 @@ async def back_to_help_callback(client: Client, callback_query):
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("• ᴀᴅᴍɪɴ ᴄᴏᴍᴍᴀɴᴅꜱ •", callback_data="admin_cmds")
+                    InlineKeyboardButton("• ᴀᴅᴍɪɴ ᴄᴏᴍᴍᴀɴᴅꜱ •", callback_data="admin_cmds", style="primary")
                 ],
                 [
-                    InlineKeyboardButton("• ᴏᴡɴᴇʀ", url="https://t.me/UNRATED_CODER"),
-                    InlineKeyboardButton("sᴜᴘᴘᴏʀᴛ •", url="https://t.me/UNRATED_CODER")
+                    InlineKeyboardButton("• ᴏᴡɴᴇʀ", url="https://t.me/UNRATED_CODER", style="success"),
+                    InlineKeyboardButton("sᴜᴘᴘᴏʀᴛ •", url="https://t.me/UNRATED_CODER", style="success")
                 ],
                 [
-                    InlineKeyboardButton("• ᴊᴏɪɴ ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ •", url="https://t.me/UNRATED_CODER")
+                    InlineKeyboardButton("• ᴊᴏɪɴ ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ •", url="https://t.me/UNRATED_CODER", style="success")
                 ],
             ]
         )
