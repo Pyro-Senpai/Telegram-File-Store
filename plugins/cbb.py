@@ -16,8 +16,8 @@ async def cb_handler(client: Bot, query: CallbackQuery):
         caption = HELP_TXT.replace("{first}", query.from_user.first_name or "") if "{first}" in HELP_TXT else HELP_TXT
 
         reply_markup = InlineKeyboardMarkup([
-            [InlineKeyboardButton('ʜᴏᴍᴇ', callback_data='start'),
-             InlineKeyboardButton("ᴄʟᴏꜱᴇ", callback_data='close')]
+            [InlineKeyboardButton('ʜᴏᴍᴇ', callback_data='start', style="primary"),
+             InlineKeyboardButton("ᴄʟᴏꜱᴇ", callback_data='close', style="danger")]
         ])
 
         if query.message.photo or query.message.document or query.message.video or query.message.animation:
@@ -39,8 +39,8 @@ async def cb_handler(client: Bot, query: CallbackQuery):
     elif data == "about":
         await query.answer()
         reply_markup = InlineKeyboardMarkup([
-            [InlineKeyboardButton('ʜᴏᴍᴇ', callback_data='start'),
-             InlineKeyboardButton('ᴄʟᴏꜱᴇ', callback_data='close')]
+            [InlineKeyboardButton('ʜᴏᴍᴇ', callback_data='start', style="primary"),
+             InlineKeyboardButton('ᴄʟᴏꜱᴇ', callback_data='close', style="danger")]
         ])
 
         if query.message.photo or query.message.document or query.message.video or query.message.animation:
@@ -62,11 +62,11 @@ async def cb_handler(client: Bot, query: CallbackQuery):
     elif data == "start":
         await query.answer()
         reply_markup = InlineKeyboardMarkup([
-            [InlineKeyboardButton('ᴀɴɪᴍᴇꜱ', url='https://t.me/UNRATED_CODER'),
-             InlineKeyboardButton('ʙᴀꜱᴇ', url='https://t.me/UNRATED_CODER')],
-            [InlineKeyboardButton('• ᴀʙᴏᴜᴛ', callback_data='about'),
-             InlineKeyboardButton(' ʜᴇʟᴘ •', callback_data='help')],
-            [InlineKeyboardButton("ᴊᴏɪɴ ᴜᴘᴅᴀᴛᴇꜱ ᴄʜᴀɴɴᴇʟ", url='https://t.me/UNRATED_CODER')]
+            [InlineKeyboardButton('ᴀɴɪᴍᴇꜱ', url='https://t.me/UNRATED_CODER', style="primary"),
+             InlineKeyboardButton('ʙᴀꜱᴇ', url='https://t.me/UNRATED_CODER', style="primary")],
+            [InlineKeyboardButton('• ᴀʙᴏᴜᴛ', callback_data='about', style="success"),
+             InlineKeyboardButton(' ʜᴇʟᴘ •', callback_data='help', style="success")],
+            [InlineKeyboardButton("ᴊᴏɪɴ ᴜᴘᴅᴀᴛᴇꜱ ᴄʜᴀɴɴᴇʟ", url='https://t.me/UNRATED_CODER', style="success")]
         ])
 
         if query.message.photo or query.message.document or query.message.video or query.message.animation:
@@ -116,8 +116,8 @@ async def cb_handler(client: Bot, query: CallbackQuery):
             status = "🟢 ᴏɴ" if mode == "on" else "🔴 ᴏғғ"
             new_mode = "ᴏғғ" if mode == "on" else "on"
             buttons = [
-                [InlineKeyboardButton(f"ʀᴇǫ ᴍᴏᴅᴇ {'OFF' if mode == 'on' else 'ON'}", callback_data=f"rfs_toggle_{cid}_{new_mode}")],
-                [InlineKeyboardButton("‹ ʙᴀᴄᴋ", callback_data="fsub_back")]
+                [InlineKeyboardButton(f"ʀᴇǫ ᴍᴏᴅᴇ {'OFF' if mode == 'on' else 'ON'}", callback_data=f"rfs_toggle_{cid}_{new_mode}", style="danger" if mode == 'on' else "success")],
+                [InlineKeyboardButton("‹ ʙᴀᴄᴋ", callback_data="fsub_back", style="primary")]
             ]
             await query.message.edit_text(
                 f"Channel: {chat.title}\nCurrent Force-Sub Mode: {status}",
@@ -138,8 +138,8 @@ async def cb_handler(client: Bot, query: CallbackQuery):
         status = "🟢 ON" if mode == "on" else "🔴 OFF"
         new_mode = "off" if mode == "on" else "on"
         buttons = [
-            [InlineKeyboardButton(f"ʀᴇǫ ᴍᴏᴅᴇ {'OFF' if mode == 'on' else 'ON'}", callback_data=f"rfs_toggle_{cid}_{new_mode}")],
-            [InlineKeyboardButton("‹ ʙᴀᴄᴋ", callback_data="fsub_back")]
+            [InlineKeyboardButton(f"ʀᴇǫ ᴍᴏᴅᴇ {'OFF' if mode == 'on' else 'ON'}", callback_data=f"rfs_toggle_{cid}_{new_mode}", style="danger" if mode == 'on' else "success")],
+            [InlineKeyboardButton("‹ ʙᴀᴄᴋ", callback_data="fsub_back", style="primary")]
         ]
         await query.message.edit_text(
             f"Channel: {chat.title}\nCurrent Force-Sub Mode: {status}",
@@ -155,7 +155,7 @@ async def cb_handler(client: Bot, query: CallbackQuery):
                 chat = await client.get_chat(cid)
                 mode = await db.get_channel_mode(cid)
                 status = "🟢" if mode == "on" else "🔴"
-                buttons.append([InlineKeyboardButton(f"{status} {chat.title}", callback_data=f"rfs_ch_{cid}")])
+                buttons.append([InlineKeyboardButton(f"{status} {chat.title}", callback_data=f"rfs_ch_{cid}", style="primary")])
             except:
                 continue
 
