@@ -14,7 +14,7 @@ async def copy_video(pyrogram_bot: PyroClient, chat_id, from_chat_id, message_id
         peer = await pyrogram_bot.resolve_peer(chat_id)
         from_peer = await pyrogram_bot.resolve_peer(from_chat_id)
         random_id = pyrogram_bot.rnd_id()
-        
+
         # Server-side forward with drop_author=True acts as a copy and preserves 100% of FHD cover & media metadata!
         res = await pyrogram_bot.invoke(
             pyro_functions.messages.ForwardMessages(
@@ -26,7 +26,7 @@ async def copy_video(pyrogram_bot: PyroClient, chat_id, from_chat_id, message_id
                 noforwards=protect_content or None
             )
         )
-        
+
         new_msg_id = None
         if hasattr(res, "updates"):
             for u in res.updates:
