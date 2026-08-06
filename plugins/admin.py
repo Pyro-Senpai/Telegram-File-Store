@@ -63,7 +63,7 @@ async def add_admins(client: Client, message: Message):
     admin_ids = await db.get_all_admins()
     admins = message.text.split()[1:]
 
-    reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("ᴄʟᴏsᴇ", callback_data="close")]])
+    reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("ᴄʟᴏsᴇ", callback_data="close", style="danger")]])
 
     if not admins:
         return await pro.edit(
@@ -88,7 +88,7 @@ async def add_admins(client: Client, message: Message):
             continue
 
         uid_str = str(uid_int)
-        if uid_str.isdigit() and len(uid_str) == 10:
+        if uid_str.isdigit() and len(uid_str) >= 5:
             admin_list += f"<b><blockquote>(ID: <code>{uid_str}</code>) added.</blockquote></b>\n"
             check += 1
         else:
@@ -115,7 +115,7 @@ async def delete_admins(client: Client, message: Message):
     admin_ids = await db.get_all_admins()
     admins = message.text.split()[1:]
 
-    reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("ᴄʟᴏsᴇ", callback_data="close")]])
+    reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("ᴄʟᴏsᴇ", callback_data="close", style="danger")]])
 
     if not admins:
         return await pro.edit(
@@ -168,7 +168,7 @@ async def get_admins(client: Client, message: Message):
     else:
         admin_list = "\n".join(f"<b><blockquote>ID: <code>{id}</code></blockquote></b>" for id in admin_ids)
 
-    reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("ᴄʟᴏsᴇ", callback_data="close")]])
+    reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("ᴄʟᴏsᴇ", callback_data="close", style="danger")]])
     await pro.edit(f"<b>⚡ Current Admin List:</b>\n\n{admin_list}", reply_markup=reply_markup)
 
 # =====================================================================================##
