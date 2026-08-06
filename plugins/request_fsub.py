@@ -50,11 +50,11 @@ async def change_force_sub_mode(client, message):
             chat = await client.get_chat(ch_id)
             mode = await db.get_channel_mode(ch_id)
             status = "🟢" if mode == "on" else "🔴"
-            buttons.append([InlineKeyboardButton(f"{status} {chat.title}", callback_data=f"rfs_ch_{ch_id}")])
+            buttons.append([InlineKeyboardButton(f"{status} {chat.title}", callback_data=f"rfs_ch_{ch_id}", style="primary")])
         except:
-            buttons.append([InlineKeyboardButton(f"⚠️ {ch_id} (Unavailable)", callback_data=f"rfs_ch_{ch_id}")])
+            buttons.append([InlineKeyboardButton(f"⚠️ {ch_id} (Unavailable)", callback_data=f"rfs_ch_{ch_id}", style="danger")])
 
-    buttons.append([InlineKeyboardButton("Close ✖️", callback_data="close")])
+    buttons.append([InlineKeyboardButton("Close ✖️", callback_data="close", style="danger")])
     await temp.edit(
         "<b>⚡ Select a channel to toggle Force-Sub Mode:</b>",
         reply_markup=InlineKeyboardMarkup(buttons),
@@ -182,7 +182,7 @@ async def list_force_sub_channels(client, message):
     await temp.edit(
         result,
         disable_web_page_preview=True,
-        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Close ✖️", callback_data="close")]])
+        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Close ✖️", callback_data="close", style="danger")]])
     )
 
 # =====================================================================================##
