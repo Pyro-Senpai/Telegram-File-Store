@@ -47,7 +47,7 @@ async def start_command(client: Client, message: Message):
             "<b>⛔️ You are Bᴀɴɴᴇᴅ from using this bot.</b>\n\n"
             "<i>Contact support if you think this is a mistake.</i>",
             reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton("Contact Support", url=BAN_SUPPORT)]]
+                [[InlineKeyboardButton("Contact Support", url=BAN_SUPPORT, style="success")]]
             )
         )
     if not await is_subscribed(client, user_id):
@@ -170,31 +170,35 @@ async def start_command(client: Client, message: Message):
                         print(f"Error deleting message {snt_msg.id}: {e}")
 
             try:
-                reload_url = (
-                    f"https://t.me/{client.username}?start={message.command[1]}"
-                    if message.command and len(message.command) > 1
-                    else None
-                )
-                keyboard = InlineKeyboardMarkup(
-                    [[InlineKeyboardButton("ɢᴇᴛ ꜰɪʟᴇ ᴀɢᴀɪɴ!", url=reload_url)]]
-                ) if reload_url else None
+                retrieve_active = await db.get_retrieve_status()
+                if retrieve_active:
+                    reload_url = (
+                        f"https://t.me/{client.username}?start={message.command[1]}"
+                        if message.command and len(message.command) > 1
+                        else None
+                    )
+                    keyboard = InlineKeyboardMarkup(
+                        [[InlineKeyboardButton("ɢᴇᴛ ꜰɪʟᴇ ᴀɢᴀɪɴ!", url=reload_url, style="success")]]
+                    ) if reload_url else None
 
-                await notification_msg.edit(
-                    "<b>ʏᴏᴜʀ ꜰɪʟᴇ ɪꜱ ꜱᴜᴄᴄᴇꜱꜱꜰᴜʟʟʏ ᴅᴇʟᴇᴛᴇᴅ, ʜᴇʜᴇ! ᴄʟɪᴄᴋ ʙᴇʟᴏᴡ ᴛᴏ ʙᴇɢ ᴍᴇ ꜰᴏʀ ɪᴛ ᴀɢᴀɪɴ 👇</b>",
-                    reply_markup=keyboard
-                )
+                    await notification_msg.edit(
+                        CUSTOM_DELETE_ALERT,
+                        reply_markup=keyboard
+                    )
+                else:
+                    await notification_msg.delete()
             except Exception as e:
-                print(f"Error updating notification with 'Get File Again' button: {e}")
+                print(f"Error updating or deleting notification message: {e}")
     else:
         reply_markup = InlineKeyboardMarkup(
             [
-                    [InlineKeyboardButton('ᴀɴɪᴍᴇꜱ', url='https://t.me/UNRATED_CODER'),
-                InlineKeyboardButton('ʙᴀꜱᴇ', url='https://t.me/UNRATED_CODER')],
-                [InlineKeyboardButton('• ᴀʙᴏᴜᴛ', callback_data='about'),
-                InlineKeyboardButton(' ʜᴇʟᴘ •', callback_data='help')],
-                [InlineKeyboardButton("ᴊᴏɪɴ ᴜᴘᴅᴀᴛᴇꜱ ᴄʜᴀɴɴᴇʟ", url='https://t.me/UNRATED_CODER')]
+                [InlineKeyboardButton('ᴀɴɪᴍᴇꜱ', url='https://t.me/UNRATED_CODER', style="primary"),
+                InlineKeyboardButton('ʙᴀꜱᴇ', url='https://t.me/UNRATED_CODER', style="primary")],
+                [InlineKeyboardButton('• ᴀʙᴏᴜᴛ', callback_data='about', style="success"),
+                InlineKeyboardButton(' ʜᴇʟᴘ •', callback_data='help', style="success")],
+                [InlineKeyboardButton("ᴊᴏɪɴ ᴜᴘᴅᴀᴛᴇꜱ ᴄʜᴀɴɴᴇʟ", url='https://t.me/UNRATED_CODER', style="success")]
             ]
-                    )
+        )
         caption = START_MSG
         if "{first}" in caption: caption = caption.replace("{first}", message.from_user.first_name or "")
         if "{last}" in caption: caption = caption.replace("{last}", message.from_user.last_name or "")
@@ -263,7 +267,7 @@ async def not_joined(client: Client, message: Message):
                                 expire_date=datetime.utcnow() + timedelta(seconds=FSUB_LINK_EXPIRY) if FSUB_LINK_EXPIRY else None)
                             link = invite.invite_link
 
-                    buttons.append([InlineKeyboardButton(text=name, url=link)])
+                    buttons.append([InlineKeyboardButton(text=f"{name}", url=link, style="primary")])
                     count += 1
                     await temp.edit(f"<b>{'! ' * count}</b>")
 
@@ -278,7 +282,8 @@ async def not_joined(client: Client, message: Message):
             buttons.append([
                 InlineKeyboardButton(
                     text='♻️ ᴛʀʏ ᴀɢᴀɪɴ',
-                    url=f"https://t.me/{client.username}?start={message.command[1]}"
+                    url=f"https://t.me/{client.username}?start={message.command[1]}",
+                    style="success"
                 )
             ])
         except IndexError:
@@ -308,5 +313,5 @@ async def not_joined(client: Client, message: Message):
 
 @Bot.on_message(filters.command('commands') & filters.private & admin)
 async def bcmd(bot: Bot, message: Message):        
-    reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("• ᴄʟᴏsᴇ •", callback_data = "close")]])
+    reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("• ᴄʟᴏsᴇ •", callback_data = "close", style="danger")]])
     await message.reply(text=CMD_TXT, reply_markup = reply_markup, quote= True)
