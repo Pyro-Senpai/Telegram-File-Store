@@ -52,6 +52,8 @@ graph TD
 
 ## ⚡ Core Features
 
+*   **🎨 Custom Button Background Colors**
+    Seamlessly style buttons with background colors (Primary, Danger, Success) using `style="primary"`, `style="danger"`, or `style="success"` keyword arguments natively, achieved by global monkey-patches on `InlineKeyboardButton.__init__` and `InlineKeyboardButton.write`.
 *   **📂 Dynamic File Indexing**
     Securely upload, store, and automatically index files sent to designated private database channels.
 *   **🔗 Instant Link Engine**
