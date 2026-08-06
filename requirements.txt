@@ -14,3 +14,5 @@ requests
 bs4
 aiofiles
 asyncio
+git+https://github.com/hydrogram/hydrogram.git
+aiosqlite
