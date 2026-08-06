@@ -8,14 +8,34 @@ from bot import Bot
 from config import *
 from helper_func import encode, admin
 
+from copy_engine import copy_video
+
 @Bot.on_message(filters.private & admin & ~filters.command(['start', 'commands','users','broadcast','batch', 'custom_batch', 'genlink','stats', 'dlt_time', 'check_dlt_time', 'dbroadcast', 'ban', 'unban', 'banlist', 'addchnl', 'delchnl', 'listchnl', 'fsub_mode', 'pbroadcast', 'add_admin', 'deladmin', 'admins','help','about']))
 async def channel_post(client: Client, message: Message):
     reply_text = await message.reply_text("Please Wait...!", quote = True)
     try:
-        post_message = await message.copy(chat_id = client.db_channel.id, disable_notification=True)
+        if message.video:
+            post_message = await copy_video(
+                pyrogram_bot=client,
+                chat_id=client.db_channel.id,
+                from_chat_id=message.chat.id,
+                message_id=message.id,
+                protect_content=False
+            )
+        else:
+            post_message = await message.copy(chat_id = client.db_channel.id, disable_notification=True)
     except FloodWait as e:
         await asyncio.sleep(e.x)
-        post_message = await message.copy(chat_id = client.db_channel.id, disable_notification=True)
+        if message.video:
+            post_message = await copy_video(
+                pyrogram_bot=client,
+                chat_id=client.db_channel.id,
+                from_chat_id=message.chat.id,
+                message_id=message.id,
+                protect_content=False
+            )
+        else:
+            post_message = await message.copy(chat_id = client.db_channel.id, disable_notification=True)
     except Exception as e:
         print(e)
         await reply_text.edit_text("Something went Wrong..!")
