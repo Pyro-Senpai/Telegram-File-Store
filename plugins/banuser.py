@@ -45,7 +45,7 @@ async def add_banuser(client: Client, message: Message):
     banuser_ids = await db.get_ban_users()
     banusers = message.text.split()[1:]
 
-    reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("❌ Close", callback_data="close")]])
+    reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("❌ Close", callback_data="close", style="danger")]])
 
     if not banusers:
         return await pro.edit(
@@ -88,7 +88,7 @@ async def delete_banuser(client: Client, message: Message):
     banuser_ids = await db.get_ban_users()
     banusers = message.text.split()[1:]
 
-    reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("❌ Close", callback_data="close")]])
+    reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("❌ Close", callback_data="close", style="danger")]])
 
     if not banusers:
         return await pro.edit(
@@ -131,7 +131,7 @@ async def get_banuser_list(client: Client, message: Message):
     banuser_ids = await db.get_ban_users()
 
     if not banuser_ids:
-        return await pro.edit("<b>✅ No users in the ban list.</b>", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("❌ Close", callback_data="close")]]))
+        return await pro.edit("<b>✅ No users in the ban list.</b>", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("❌ Close", callback_data="close", style="danger")]]))
 
     result = "<b>🚫 Banned Users:</b>\n\n"
     for uid in banuser_ids:
@@ -143,4 +143,4 @@ async def get_banuser_list(client: Client, message: Message):
         except:
             result += f"• <code>{uid}</code> — <i>Unknown</i>\n"
 
-    await pro.edit(result, disable_web_page_preview=True, reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("❌ Close", callback_data="close")]]))
+    await pro.edit(result, disable_web_page_preview=True, reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("❌ Close", callback_data="close", style="danger")]]))
