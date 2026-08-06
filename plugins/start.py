@@ -101,6 +101,7 @@ async def start_command(client: Client, message: Message):
         finally:
             await temp_msg.delete()
  
+        from copy_engine import copy_video
         codeflix_msgs = []
 
         for msg in messages:
@@ -109,26 +110,49 @@ async def start_command(client: Client, message: Message):
             reply_markup = msg.reply_markup if DISABLE_CHANNEL_BUTTON else None
 
             try:
-                snt_msg = await msg.copy(
-                    chat_id=message.from_user.id,
-                    caption=caption,
-                    parse_mode=ParseMode.HTML,
-                    reply_markup=reply_markup,
-                    protect_content=PROTECT_CONTENT
-                )
+                if msg.video:
+                    snt_msg = await copy_video(
+                        pyrogram_bot=client,
+                        chat_id=message.from_user.id,
+                        from_chat_id=client.db_channel.id,
+                        message_id=msg.id,
+                        caption=caption,
+                        reply_markup=reply_markup,
+                        protect_content=PROTECT_CONTENT
+                    )
+                else:
+                    snt_msg = await msg.copy(
+                        chat_id=message.from_user.id,
+                        caption=caption,
+                        parse_mode=ParseMode.HTML,
+                        reply_markup=reply_markup,
+                        protect_content=PROTECT_CONTENT
+                    )
                 await asyncio.sleep(0.5)
                 codeflix_msgs.append(snt_msg)
             except FloodWait as e:
                 await asyncio.sleep(e.x)
-                copied_msg = await msg.copy(
-                    chat_id=message.from_user.id,
-                    caption=caption,
-                    parse_mode=ParseMode.HTML,
-                    reply_markup=reply_markup,
-                    protect_content=PROTECT_CONTENT
-                )
+                if msg.video:
+                    copied_msg = await copy_video(
+                        pyrogram_bot=client,
+                        chat_id=message.from_user.id,
+                        from_chat_id=client.db_channel.id,
+                        message_id=msg.id,
+                        caption=caption,
+                        reply_markup=reply_markup,
+                        protect_content=PROTECT_CONTENT
+                    )
+                else:
+                    copied_msg = await msg.copy(
+                        chat_id=message.from_user.id,
+                        caption=caption,
+                        parse_mode=ParseMode.HTML,
+                        reply_markup=reply_markup,
+                        protect_content=PROTECT_CONTENT
+                    )
                 codeflix_msgs.append(copied_msg)
-            except:
+            except Exception as e:
+                print(e)
                 pass
 
         if FILE_AUTO_DELETE > 0:
