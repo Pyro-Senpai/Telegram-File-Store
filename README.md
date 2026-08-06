@@ -7,13 +7,13 @@
 <h1 align="center">🤖 Telegram File Store Bot</h1>
 
 <p align="center">
-  <b>A hyper-fast, secure, and modern Telegram File Storage engine built on Pyrogram. Bypasses ads, handles dynamic auto-deletion, and forces community subscriptions automatically.</b>
+  <b>A hyper-fast, secure, and modern Telegram File Storage engine built on Hydrogram (API Layer 223). Bypasses ads, handles dynamic auto-deletion, and forces community subscriptions automatically.</b>
 </p>
 
 <p align="center">
   <a href="#!"><img src="https://img.shields.io/badge/Maintained%20With-❤️-blue?style=for-the-badge&labelColor=111111" alt="Maintained with Love"></a>
   <a href="#!"><img src="https://img.shields.io/badge/Python-3.10%2B-3776AB?style=for-the-badge&logo=python&logoColor=white&labelColor=111111" alt="Python Version"></a>
-  <a href="#!"><img src="https://img.shields.io/badge/Framework-Pyrogram-26A69A?style=for-the-badge&logo=telegram&logoColor=white&labelColor=111111" alt="Framework"></a>
+  <a href="#!"><img src="https://img.shields.io/badge/Framework-Hydrogram--223-26A69A?style=for-the-badge&logo=telegram&logoColor=white&labelColor=111111" alt="Framework"></a>
   <a href="#!"><img src="https://img.shields.io/badge/Database-MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white&labelColor=111111" alt="Database"></a>
 </p>
 
@@ -29,7 +29,7 @@
 ```mermaid
 graph TD
     %% System Flow & Integration Diagram
-    Bot[🤖 File Store Bot] -->|⚡ Pyrogram API| TG[💬 Telegram Gateways]
+    Bot[🤖 File Store Bot] -->|⚡ Hydrogram Engine| TG[💬 Telegram Gateways]
     Bot -->|↔️ Read/Write Metadata| DB[(🍃 MongoDB Atlas DB)]
     Bot -->|🔐 Gate User Request| FSub{🛡️ Force Sub Check}
     
