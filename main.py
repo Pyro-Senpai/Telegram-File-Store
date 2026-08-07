@@ -64,6 +64,70 @@ def patched_handle_starttag(self, tag, attrs):
 
 Parser.handle_starttag = patched_handle_starttag
 
+# Patch to support message effects (like fire effect)
+from hydrogram.types import Message
+import hydrogram
+
+# 1. Patch invoke to set the 'effect' field of SendMessage and SendMedia raw MTProto calls
+original_invoke = hydrogram.Client.invoke
+
+async def patched_invoke(self, query, *args, **kwargs):
+    effect_id = getattr(self, "_current_message_effect_id", None)
+    if effect_id is not None:
+        if hasattr(query, "effect"):
+            query.effect = int(effect_id)
+    return await original_invoke(self, query, *args, **kwargs)
+
+hydrogram.Client.invoke = patched_invoke
+
+# 2. Patch Client.send_photo and Client.send_message to accept message_effect_id
+original_send_photo = hydrogram.Client.send_photo
+async def patched_send_photo(self, *args, **kwargs):
+    effect_id = kwargs.pop("message_effect_id", None)
+    if effect_id is not None:
+        self._current_message_effect_id = effect_id
+    try:
+        return await original_send_photo(self, *args, **kwargs)
+    finally:
+        self._current_message_effect_id = None
+
+hydrogram.Client.send_photo = patched_send_photo
+
+original_send_message = hydrogram.Client.send_message
+async def patched_send_message(self, *args, **kwargs):
+    effect_id = kwargs.pop("message_effect_id", None)
+    if effect_id is not None:
+        self._current_message_effect_id = effect_id
+    try:
+        return await original_send_message(self, *args, **kwargs)
+    finally:
+        self._current_message_effect_id = None
+
+hydrogram.Client.send_message = patched_send_message
+
+# 3. Patch Message.reply_photo and Message.reply to accept message_effect_id
+original_reply_photo = Message.reply_photo
+async def patched_reply_photo(self, photo, *args, message_effect_id=None, **kwargs):
+    if message_effect_id is not None:
+        self._client._current_message_effect_id = message_effect_id
+    try:
+        return await original_reply_photo(self, photo, *args, **kwargs)
+    finally:
+        self._client._current_message_effect_id = None
+
+Message.reply_photo = patched_reply_photo
+
+original_reply = Message.reply
+async def patched_reply(self, text, *args, message_effect_id=None, **kwargs):
+    if message_effect_id is not None:
+        self._client._current_message_effect_id = message_effect_id
+    try:
+        return await original_reply(self, text, *args, **kwargs)
+    finally:
+        self._client._current_message_effect_id = None
+
+Message.reply = patched_reply
+
 from bot import Bot
 import pyrogram.utils
 from flask import Flask
