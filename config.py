@@ -31,7 +31,7 @@ TG_BOT_WORKERS = int(os.environ.get("TG_BOT_WORKERS", "200"))
 START_PIC = os.environ.get("START_PIC", "https://graph.org/file/0591ce5558c3ec8fe7612-263292508134daf3e1.jpg")
 FORCE_PIC = os.environ.get("FORCE_PIC", "https://graph.org/file/fdc4357abfaba23255e98-24d1bbfa3888cdfcfe.jpg")
 
-HELP_TXT = "<b>ʜᴜʜʜʜʜʜ!... ʜᴇʟᴘ? 😮‍💨</b>\n<b><blockquote>⚡ ᴛʜɪs ᴘʀɪᴠᴀᴛᴇ ᴘʀᴇᴍɪᴜᴍ ʙᴏᴛ ɪs ᴍʏ ᴘᴇʀsᴏɴᴀʟ ɢᴀʀᴅᴇɴ! ᴏɴʟʏ ᴍʏ ᴄʜᴏsᴇɴ ᴀᴅᴍɪɴs & ᴍʏ ᴅᴀʀʟɪɴɢs ᴄᴀɴ ᴛᴏᴜᴄʜ ɪᴛ. 🔐 ᴛᴏ sᴛᴇᴀʟ ᴀ ɢʟɪᴍᴘsᴇ ᴀɴᴅ ɢᴇᴛ ꜰɪʟᴇs, ᴊᴏɪɴ ᴍʏ ᴄʜᴀɴɴᴇʟ ᴀɴᴅ ᴀsᴋ ꜰᴏʀ ᴛʜᴇ ᴅɪʀᴇᴄᴛ ʟɪɴᴋ! 🎯 ᴛʜɪs ɪs ᴇxᴄʟᴜsɪᴠᴇʟʏ ꜰᴏʀ ʏᴏᴜ. ɢᴇᴛ ʏᴏᴜʀ ꜰɪʟᴇs sᴇᴄᴜʀᴇʟʏ, ᴀɴᴅ ᴅᴏɴ'ᴛ ᴍᴀᴋᴇ ᴍᴇ ᴡᴀɪᴛ!</blockquote></b>\n<b>• ᴊᴏɪɴ ᴍʏ ᴍᴀɪɴ ᴄʜᴀɴɴᴇʟ: @Unrated_Coder\nᴡᴀɴᴛ ᴍᴏʀᴇ ᴏꜰ ᴍᴇ? ᴜsᴇ /help!</b>"
+HELP_TXT = "<b>ʜᴜʜʜʜʜʜ!... ʜᴇʟᴘ? 😮‍💨</b>\n<b><blockquote>⚡ ᴛʜɪs ᴘʀɪᴠᴀᴛᴇ ᴘʀᴇᴍɪᴜᴍ ʙᴏᴛ ɪs ᴍʏ ᴘᴇʀsᴏɴᴀʟ ɢᴀʀᴅᴇɴ! ᴏɴʟʏ ᴍʏ ᴄʜᴏsᴇɴ ᴀᴅᴍɪɴs & ᴍʏ ᴅᴀʀʟɪɴɢs ᴄᴀɴ ᴛᴏᴜᴄʜ ɪᴛ. 🔐 ᴛᴏ sᴛᴇᴀʟ ᴀ ɢʟɪᴍᴘsᴇ ᴀɴᴅ ɢᴇᴛ ꜰɪʟᴇs, ᴊᴏɪɴ ᴍʏ ᴄʜᴀɴɴᴇʟ ᴀɴᴅ ᴀsᴋ ꜰᴏʀ ᴛʜᴇ ᴅɪʀᴇᴄᴛ ʟɪɴᴋ! 🎯 ᴛʜɪs ɪs ᴇxᴄʟᴜsɪᴠᴇʟʏ ꜰᴏʀ ʏᴏᴜ. ɢᴇᴛ ʏᴏᴜʀ ꜰɪʟᴇs sᴇᴄᴜʀᴇʟʏ, ᴀɴᴅ ᴅᴏɴ'ᴛ ᴍᴀᴋᴇ ᴍᴇ ᴡᴀɪᴛ!</blockquote></b>"
 
 ABOUT_TXT = """<b>🤖 ɪꜱʜᴛᴀʀ ʙᴏᴛ - ᴀʙᴏᴜᴛ ᴍᴇ</b>
 <b><blockquote>💡 ᴍʏ ꜱᴛᴀᴛᴜꜱ: <code>ᴏɴʟɪɴᴇ ᴀɴᴅ ᴡᴀɪᴛɪɴɢ 24/7</code>
