@@ -66,7 +66,7 @@ class Bot(Client):
 
         self.set_parse_mode(ParseMode.HTML)
         self.LOGGER(__name__).info(f"Bot Running..!\n\nCreated by \n@UNRATED_CODER")
-        self.LOGGER(__name__).info(f"""BOT DEPLOYED BY @UNRATED_CODER""")
+        self.LOGGER(__name__).info(f"""BOT DEPLOYED BY @PyroSznpai""")
 
         self.set_parse_mode(ParseMode.HTML)
         self.username = usr_bot_me.username
