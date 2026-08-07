@@ -70,7 +70,7 @@ class Bot(Client):
 
         self.set_parse_mode(ParseMode.HTML)
         self.username = usr_bot_me.username
-        self.LOGGER(__name__).info(f"Bot Running..! Made by @UNRATED_CODER")
+        self.LOGGER(__name__).info(f"Bot Running..! Made by @PyroSznpai")
 
 
         try:
