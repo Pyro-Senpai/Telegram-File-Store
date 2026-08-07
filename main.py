@@ -52,6 +52,18 @@ async def patched_write(self, client):
 
 hydrogram.types.InlineKeyboardButton.write = patched_write
 
+from hydrogram.parser.html import Parser
+
+original_handle_starttag = Parser.handle_starttag
+
+def patched_handle_starttag(self, tag, attrs):
+    original_handle_starttag(self, tag, attrs)
+    if tag == "blockquote" and "expandable" in dict(attrs):
+        if tag in self.tag_entities and self.tag_entities[tag]:
+            self.tag_entities[tag][-1].collapsed = True
+
+Parser.handle_starttag = patched_handle_starttag
+
 from bot import Bot
 import pyrogram.utils
 from flask import Flask
