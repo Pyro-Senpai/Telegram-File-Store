@@ -210,8 +210,7 @@ async def start_command(client: Client, message: Message):
             photo=get_next_image(message.chat.id),
             caption=caption,
             reply_markup=reply_markup,
-            has_spoiler=True,
-            message_effect_id=5104841245755180586)
+            has_spoiler=True)
         
         return
 
