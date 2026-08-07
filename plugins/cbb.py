@@ -62,11 +62,11 @@ async def cb_handler(client: Bot, query: CallbackQuery):
     elif data == "start":
         await query.answer()
         reply_markup = InlineKeyboardMarkup([
-            [InlineKeyboardButton('ᴀɴɪᴍᴇꜱ', url='https://t.me/UNRATED_CODER', style="primary"),
-             InlineKeyboardButton('ʙᴀꜱᴇ', url='https://t.me/UNRATED_CODER', style="primary")],
+            [InlineKeyboardButton('ᴀɴɪᴍᴇꜱ', url='https://t.me/AnimeSenpaiWorld', style="primary"),
+             InlineKeyboardButton('ʙᴀꜱᴇ', url='https://t.me/AnimeSenpaiWorld', style="primary")],
             [InlineKeyboardButton('• ᴀʙᴏᴜᴛ', callback_data='about', style="success"),
              InlineKeyboardButton(' ʜᴇʟᴘ •', callback_data='help', style="success")],
-            [InlineKeyboardButton("ᴊᴏɪɴ ᴜᴘᴅᴀᴛᴇꜱ ᴄʜᴀɴɴᴇʟ", url='https://t.me/UNRATED_CODER', style="success")]
+            [InlineKeyboardButton("ᴊᴏɪɴ ᴜᴘᴅᴀᴛᴇꜱ ᴄʜᴀɴɴᴇʟ", url='https://t.me/AnimeSenpaiWorld', style="success")]
         ])
 
         if query.message.photo or query.message.document or query.message.video or query.message.animation:
