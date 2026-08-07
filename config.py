@@ -59,7 +59,7 @@ CMD_TXT = """<blockquote><b>» ᴀᴅᴍɪɴ'ꜱ ꜱᴇᴄʀᴇᴛ ᴛᴏʏꜱ:<
 <b>›› /deladmin :</b> ʀᴇᴍᴏᴠᴇ ᴀɴ ᴀᴅᴍɪɴ
 <b>›› /admins :</b> ɢᴇᴛ ʟɪꜱᴛ ᴏꜰ ᴀᴅᴍɪɴꜱ
 """
-CUSTOM_CAPTION = os.environ.get("CUSTOM_CAPTION", "<b>• ʙʏ @WizardPyroSenpai</b>")
+CUSTOM_CAPTION = os.environ.get("CUSTOM_CAPTION", "<b>● Bʏ @AnimeSenpaiWorld</b>")
 CUSTOM_DELETE_ALERT = os.environ.get("CUSTOM_DELETE_ALERT", "<b>ʏᴏᴜʀ ꜰɪʟᴇ ɪꜱ ꜱᴜᴄᴄᴇꜱꜱꜰᴜʟʟʏ ᴅᴇʟᴇᴛᴇᴅ, ʜᴇʜᴇ! ᴄʟɪᴄᴋ ʙᴇʟᴏᴡ ᴛᴏ ʙᴇɢ ᴍᴇ ꜰᴏʀ ɪᴛ ᴀɢᴀɪɴ 👇</b>")
 PROTECT_CONTENT = True if os.environ.get('PROTECT_CONTENT', "False") == "True" else False 
 DISABLE_CHANNEL_BUTTON = os.environ.get("DISABLE_CHANNEL_BUTTON", None) == 'True'
