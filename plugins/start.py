@@ -192,11 +192,11 @@ async def start_command(client: Client, message: Message):
     else:
         reply_markup = InlineKeyboardMarkup(
             [
-                [InlineKeyboardButton('ᴀɴɪᴍᴇꜱ', url='https://t.me/UNRATED_CODER', style="primary"),
-                InlineKeyboardButton('ʙᴀꜱᴇ', url='https://t.me/UNRATED_CODER', style="primary")],
+                [InlineKeyboardButton('ᴀɴɪᴍᴇꜱ', url='https://t.me/AnimeSenpaiWorld', style="primary"),
+                InlineKeyboardButton('ʙᴀꜱᴇ', url='https://t.me/AnimeSenpaiWorld', style="primary")],
                 [InlineKeyboardButton('• ᴀʙᴏᴜᴛ', callback_data='about', style="success"),
                 InlineKeyboardButton(' ʜᴇʟᴘ •', callback_data='help', style="success")],
-                [InlineKeyboardButton("ᴊᴏɪɴ ᴜᴘᴅᴀᴛᴇꜱ ᴄʜᴀɴɴᴇʟ", url='https://t.me/UNRATED_CODER', style="success")]
+                [InlineKeyboardButton("ᴊᴏɪɴ ᴜᴘᴅᴀᴛᴇꜱ ᴄʜᴀɴɴᴇʟ", url='https://t.me/AnimeSenpaiWorld', style="success")]
             ]
         )
         caption = START_MSG
