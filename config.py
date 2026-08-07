@@ -39,7 +39,7 @@ ABOUT_TXT = """<b>🤖 ɪꜱʜᴛᴀʀ ʙᴏᴛ - ᴀʙᴏᴜᴛ ᴍᴇ</b>
 🔗 ᴀᴄᴄᴇꜱꜱ: ɢᴇᴛ ᴛʜᴇᴍ ᴅɪʀᴇᴄᴛʟʏ ᴛʜʀᴏᴜɢʜ ᴍʏ ꜱᴘᴇᴄɪᴀʟ ʟɪɴᴋꜱ.
 ⚡ ᴜᴘᴛɪᴍᴇ: ᴀʟᴡᴀʏꜱ ᴀᴄᴛɪᴠᴇ ᴊᴜꜱᴛ ꜰᴏʀ ʏᴏᴜ.
 🌐 ᴄʜᴀɴɴᴇʟꜱ: ᴊᴏɪɴ ᴜꜱ, ᴅᴏɴ'ᴛ ʙᴇ ꜱʜʏ!</blockquote></b>
-<b><blockquote>◈ ᴄʀᴇᴀᴛᴏʀ: <a href="https://t.me/UNRATED_CODER">ᴜɴʀᴀᴛᴇᴅ ᴄᴏᴅᴇʀ</a>\n◈ ꜰᴏᴜɴᴅᴇʀ: <a href="https://t.me/UNRATED_CODER">ᴜɴʀᴀᴛᴇᴅ ᴄᴏᴅᴇʀ</a>\n◈ ᴅᴇᴠᴇʟᴏᴘᴇʀ: <a href="https://t.me/UNRATED_CODER">ᴜɴʀᴀᴛᴇᴅ ᴄᴏᴅᴇʀ</a></blockquote></b>"""
+<b><blockquote>◈ ᴄʀᴇᴀᴛᴏʀ: <a href="https://t.me/UNRATED_CODER">ᴜɴʀᴀᴛᴇᴅ ᴄᴏᴅᴇʀ</a>\n◈ ꜰᴏᴜɴᴅᴇʀ: <a href="https://t.me/Tamil_Dubbed_Anime_Series">ᴜɴʀᴀᴛᴇᴅ ᴄᴏᴅᴇʀ</a>\n◈ ᴅᴇᴠᴇʟᴏᴘᴇʀ: <a href="https://t.me/Tamil_Dubbed_Anime_Series">ᴜɴʀᴀᴛᴇᴅ ᴄᴏᴅᴇʀ</a></blockquote></b>"""
 START_MSG = os.environ.get("START_MESSAGE", "<b>💖 ʜᴇʟʟᴏ {first}! 🥀\n<blockquote expandable>ɪ'ᴍ ɪꜱʜᴛᴀʀ ᴛʜᴇ ɢᴏᴅᴅᴇꜱꜱ ᴏꜰ ꜰᴇʀᴛɪʟɪᴛʏ ✨ ʏᴏᴜʀ ᴘᴇʀꜱᴏɴᴀʟ ᴘʟᴀʏꜰᴜʟ ɢᴏᴅᴅᴇꜱꜱ ᴏꜰ ᴀɴɪᴍᴇ & ꜰɪʟᴇ ᴀᴄᴄᴇꜱꜱ 🚀\n\nɪ ᴄᴀɴ ꜱᴀᴠᴇ ᴘʀɪᴠᴀᴛᴇ ꜰɪʟᴇꜱ ɪɴ ᴄʜᴀɴɴᴇʟꜱ🔗 & ɢɪᴠᴇ ʏᴏᴜ ᴀᴄᴄᴇꜱꜱ ᴠɪᴀ ᴀ ꜱᴘᴇᴄɪᴀʟ ʟɪɴᴋ.\n\nᴅᴏɴ'ᴛ ᴋᴇᴇᴘ ᴍᴇ ᴡᴀɪᴛɪɴɢ, ᴏʀ ɪ ᴍɪɢʜᴛ ɢᴇᴛ ʙᴏʀᴇᴅ ᴀɴᴅ ᴛᴇᴀꜱᴇ ʏᴏᴜ! 😉</blockquote>\n<blockquote>🔰 ᴄʜᴇᴄᴋ ᴏᴜᴛ ᴍʏ ᴄʜᴀɴɴᴇʟꜱ & ɢᴇᴛ ʏᴏᴜʀ ꜰɪʟᴇꜱ ɪɴꜱᴛᴀɴᴛʟʏ! 🔰</blockquote></b>")
 FORCE_MSG = os.environ.get("FORCE_SUB_MESSAGE", "<b>🚨 ᴘʟᴇᴀꜱᴇ ᴊᴏɪɴ ᴍʏ ᴄʜᴀɴɴᴇʟꜱ ꜰɪʀꜱᴛ!</b>\n<blockquote>⚡ ᴛᴏ ᴄᴏɴᴛɪɴᴜᴇ, ᴍᴀᴋᴇ ꜱᴜʀᴇ ʏᴏᴜ'ᴠᴇ ᴊᴏɪɴᴇᴅ ᴀʟʟ ᴛʜᴇ ʀᴇǫᴜɪʀᴇᴅ ᴄʜᴀɴɴᴇʟꜱ ᴍᴇɴᴛɪᴏɴᴇᴅ ʙᴇʟᴏᴡ.\nᴏɴᴄᴇ ᴅᴏɴᴇ, ᴄʟɪᴄᴋ ᴛʜᴇ <b>ᴛʀʏ ᴀɢᴀɪɴ</b> ʙᴜᴛᴛᴏɴ ᴛᴏ ᴘʀᴏᴠᴇ ʏᴏᴜʀ ʟᴏʏᴀʟᴛʏ!</blockquote>\n\n<blockquote>💡<i>ɪꜰ ʏᴏᴜ'ᴇ ꜱᴛʀᴜɢɢʟɪɴɢ ʟɪᴋᴇ ᴀ ᴄʟᴜᴍꜱʏ ʜᴜᴍᴀɴ, ᴛʏᴘᴇ <code>/help</code> ᴛᴏ ᴡᴀᴛᴄʜ ᴍʏ ᴛᴜᴛᴏʀɪᴀʟ ᴀɴᴅ ꜰɪx ɪᴛ ᴇᴀꜱɪʟʏ!</i></blockquote>")
 
@@ -59,7 +59,7 @@ CMD_TXT = """<blockquote><b>» ᴀᴅᴍɪɴ'ꜱ ꜱᴇᴄʀᴇᴛ ᴛᴏʏꜱ:<
 <b>›› /deladmin :</b> ʀᴇᴍᴏᴠᴇ ᴀɴ ᴀᴅᴍɪɴ
 <b>›› /admins :</b> ɢᴇᴛ ʟɪꜱᴛ ᴏꜰ ᴀᴅᴍɪɴꜱ
 """
-CUSTOM_CAPTION = os.environ.get("CUSTOM_CAPTION", "<b>• ʙʏ @UNRATED_CODER</b>")
+CUSTOM_CAPTION = os.environ.get("CUSTOM_CAPTION", "<b>• ʙʏ @WizardPyroSenpai</b>")
 CUSTOM_DELETE_ALERT = os.environ.get("CUSTOM_DELETE_ALERT", "<b>ʏᴏᴜʀ ꜰɪʟᴇ ɪꜱ ꜱᴜᴄᴄᴇꜱꜱꜰᴜʟʟʏ ᴅᴇʟᴇᴛᴇᴅ, ʜᴇʜᴇ! ᴄʟɪᴄᴋ ʙᴇʟᴏᴡ ᴛᴏ ʙᴇɢ ᴍᴇ ꜰᴏʀ ɪᴛ ᴀɢᴀɪɴ 👇</b>")
 PROTECT_CONTENT = True if os.environ.get('PROTECT_CONTENT', "False") == "True" else False 
 DISABLE_CHANNEL_BUTTON = os.environ.get("DISABLE_CHANNEL_BUTTON", None) == 'True'
