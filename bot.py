@@ -76,34 +76,33 @@ class Bot(Client):
         try:
             from pyrogram.types import BotCommand
             await self.set_bot_commands([
-                BotCommand("about", "sʜᴏᴡs ɪɴғᴏʀᴍᴀᴛɪᴏɴ ᴀʙᴏᴜᴛ ᴛʜᴇ ʙᴏᴛ"),
+                BotCommand("start", "sᴛᴀʀᴛs ᴏʀ ʀᴇsᴛᴀʀᴛs ᴛʜᴇ ʙᴏᴛ"),
+                BotCommand("help", "sʜᴏᴡs ᴛʜᴇ sᴜᴘᴘᴏʀᴛ/ʜᴇʟᴘ ᴍᴇssᴀɢᴇ"),
+                BotCommand("commands", "ʟɪsᴛs ᴀʟʟ ᴀᴠᴀɪʟᴀʙʟᴇ ʙᴏᴛ ᴄᴏᴍᴍᴀɴᴅs"),
+                BotCommand("stats", "sʜᴏᴡs ʙᴏᴛ sᴛᴀᴛɪsᴛɪᴄs"),
+                BotCommand("users", "sʜᴏᴡs ᴛʜᴇ ᴛᴏᴛᴀʟ ᴜsᴇʀ ᴄᴏᴜɴᴛ"),
                 BotCommand("add_admin", "ᴀᴅᴅs ᴀ ɴᴇᴡ ᴀᴅᴍɪɴ ᴜsᴇʀ"),
-                BotCommand("addchnl", "ᴀᴅᴅs ᴀ ɴᴇᴡ ғᴏʀᴄᴇ sᴜʙ ᴄʜᴀɴɴᴇʟ"),
                 BotCommand("admins", "ʟɪsᴛs ᴀʟʟ ᴀᴄᴛɪᴠᴇ ᴀᴅᴍɪɴ ɪᴅs"),
+                BotCommand("deladmin", "ʀᴇᴍᴏᴠᴇs ᴀɴ ᴀᴅᴍɪɴ ᴜsᴇʀ"),
+                BotCommand("addchnl", "ᴀᴅᴅs ᴀ ɴᴇᴡ ғᴏʀᴄᴇ sᴜʙ ᴄʜᴀɴɴᴇʟ"),
+                BotCommand("delchnl", "ʀᴇᴍᴏᴠᴇs ᴀ ғᴏʀᴄᴇ sᴜʙ ᴄʜᴀɴɴᴇʟ"),
+                BotCommand("listchnl", "sʜᴏᴡs ᴛʜᴇ ғᴏʀᴄᴇ sᴜʙ ᴄʜᴀɴɴᴇʟs"),
+                BotCommand("fsub_mode", "ᴛᴏɢɢʟᴇs ғᴏʀᴄᴇ sᴜʙsᴄʀɪᴘᴛɪᴏɴ ᴍᴏᴅᴇ"),
                 BotCommand("ban", "ʙᴀɴs ᴀ ᴜsᴇʀ ғʀᴏᴍ ᴛʜᴇ ʙᴏᴛ"),
+                BotCommand("unban", "ᴜɴʙᴀɴs ᴀ ᴜsᴇʀ"),
                 BotCommand("banlist", "sʜᴏᴡs ᴛʜᴇ ʟɪsᴛ ᴏғ ʙᴀɴɴᴇᴅ ᴜsᴇʀs"),
                 BotCommand("batch", "ᴄʀᴇᴀᴛᴇs ᴀ ʙᴀᴛᴄʜ ᴏғ ғɪʟᴇ ʟɪɴᴋs"),
-                BotCommand("broadcast", "sᴇɴᴅs ᴀ ʙʀᴏᴀᴅᴄᴀsᴛ ᴍᴇssᴀɢᴇ"),
-                BotCommand("check_dlt_time", "ᴄʜᴇᴄᴋs ᴛʜᴇ ᴄᴜʀʀᴇɴᴛ ᴀᴜᴛᴏ-ᴅᴇʟᴇᴛᴇ ᴛɪᴍᴇʀ"),
-                BotCommand("commands", "ʟɪsᴛs ᴀʟʟ ᴀᴠᴀɪʟᴀʙʟᴇ ʙᴏᴛ ᴄᴏᴍᴍᴀɴᴅs"),
                 BotCommand("custom_batch", "sᴀᴠᴇs ᴄᴜsᴛᴏᴍ ᴍᴇssᴀɢᴇs ᴀs ᴀ ʙᴀᴛᴄʜ ʟɪɴᴋ"),
-                BotCommand("dbroadcast", "sᴇɴᴅs ᴀ sɪʟᴇɴᴛ ʙʀᴏᴀᴅᴄᴀsᴛ"),
-                BotCommand("deladmin", "ʀᴇᴍᴏᴠᴇs ᴀɴ ᴀᴅᴍɪɴ ᴜsᴇʀ"),
-                BotCommand("delchnl", "ʀᴇᴍᴏᴠᴇs ᴀ ғᴏʀᴄᴇ sᴜʙ ᴄʜᴀɴɴᴇʟ"),
-                BotCommand("dlt_time", "sᴇᴛs ᴛʜᴇ ᴀᴜᴛᴏ-ᴅᴇʟᴇᴛᴇ ᴛɪᴍᴇʀ"),
-                BotCommand("fsub_mode", "ᴛᴏɢɢʟᴇs ғᴏʀᴄᴇ sᴜʙsᴄʀɪᴘᴛɪᴏɴ ᴍᴏᴅᴇ"),
                 BotCommand("genlink", "ɢᴇɴᴇʀᴀᴛᴇs ᴀ sɪɴɢʟᴇ sʜᴀʀᴇ ʟɪɴᴋ"),
-                BotCommand("help", "sʜᴏᴡs ᴛʜᴇ sᴜᴘᴘᴏʀᴛ/ʜᴇʟᴘ ᴍᴇssᴀɢᴇ"),
-                BotCommand("listchnl", "sʜᴏᴡs ᴛʜᴇ ғᴏʀᴄᴇ sᴜʙ ᴄʜᴀɴɴᴇʟs"),
+                BotCommand("broadcast", "sᴇɴᴅs ᴀ ʙʀᴏᴀᴅᴄᴀsᴛ ᴍᴇssᴀɢᴇ"),
                 BotCommand("pbroadcast", "sᴇɴᴅs ᴀ ᴘʜᴏᴛᴏ ʙʀᴏᴀᴅᴄᴀsᴛ"),
-                BotCommand("retrieve_off", "ᴅɪsᴀʙʟᴇs ᴛʜᴇ ᴅᴇʟᴇᴛɪᴏɴ ᴀʟᴇʀᴛ ᴍᴇssᴀɢᴇ"),
+                BotCommand("dbroadcast", "sᴇɴᴅs ᴀ sɪʟᴇɴᴛ ʙʀᴏᴀᴅᴄᴀsᴛ"),
+                BotCommand("dlt_time", "sᴇᴛs ᴛʜᴇ ᴀᴜᴛᴏ-ᴅᴇʟᴇᴛᴇ ᴛɪᴍᴇr"),
+                BotCommand("check_dlt_time", "ᴄʜᴇᴄᴋs ᴛʜᴇ ᴄᴜʀʀᴇɴᴛ ᴀᴜᴛᴏ-ᴅᴇʟᴇᴛᴇ ᴛɪᴍᴇʀ"),
                 BotCommand("retrieve_on", "ᴇɴᴀʙʟᴇs ᴛʜᴇ ᴅᴇʟᴇᴛɪᴏɴ ᴀʟᴇʀᴛ ᴍᴇssᴀɢᴇ"),
-                BotCommand("start", "sᴛᴀʀᴛs ᴏʀ ʀᴇsᴛᴀʀᴛs ᴛʜᴇ ʙᴏᴛ"),
-                BotCommand("stats", "sʜᴏᴡs ʙᴏᴛ sᴛᴀᴛɪsᴛɪᴄs"),
-                BotCommand("unban", "ᴜɴʙᴀɴs ᴀ ᴜsᴇʀ"),
-                BotCommand("users", "sʜᴏᴡs ᴛʜᴇ ᴛᴏᴛᴀʟ ᴜsᴇʀ ᴄᴏᴜɴᴛ")
+                BotCommand("retrieve_off", "ᴅɪsᴀʙʟᴇs ᴛʜᴇ ᴅᴇʟᴇᴛɪᴏɴ ᴀʟᴇʀᴛ ᴍᴇssᴀɢᴇ")
             ])
-            self.LOGGER(__name__).info("Bot commands set successfully A-Z.")
+            self.LOGGER(__name__).info("Bot commands set successfully starting with start.")
         except Exception as e:
             self.LOGGER(__name__).warning(f"Error setting bot commands: {e}")
 
