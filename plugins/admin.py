@@ -88,7 +88,7 @@ async def add_admins(client: Client, message: Message):
             continue
 
         uid_str = str(uid_int)
-        if uid_str.isdigit() and len(uid_str) >= 5:
+        if uid_str.isdigit() and len(uid_str) >= 10:
             admin_list += f"<b><blockquote>(ID: <code>{uid_str}</code>) added.</blockquote></b>\n"
             check += 1
         else:
