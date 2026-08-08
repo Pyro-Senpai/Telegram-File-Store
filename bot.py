@@ -20,8 +20,50 @@
 
 import asyncio
 import pyromod.listen
+import inspect
+from pyrogram.handlers import MessageHandler
+
+# Monkeypatch pyromod's MessageHandler.check to safely handle both synchronous and asynchronous custom/standard filters.
+async def safe_check(self, client, update):
+    listener = client.listening.get(update.chat.id)
+    if listener and not listener['future'].done():
+        if callable(listener['filters']):
+            res = listener['filters'](client, update)
+            if inspect.isawaitable(res):
+                return await res
+            return res
+        return True
+    if callable(self.filters):
+        res = self.filters(client, update)
+        if inspect.isawaitable(res):
+            return await res
+        return res
+    return True
+
+MessageHandler.check = safe_check
+
 from pyrogram import Client
 from pyrogram.enums import ParseMode
+import functools
+
+# Monkeypatch pyromod's Client.listen to use the currently running event loop,
+# preventing "ValueError: The future belongs to a different loop than the one specified as the loop argument".
+async def patched_listen(self, chat_id, filters=None, timeout=None):
+    if type(chat_id) != int:
+        chat = await self.get_chat(chat_id)
+        chat_id = chat.id
+
+    loop = asyncio.get_running_loop()
+    future = loop.create_future()
+    future.add_done_callback(
+        functools.partial(self.clear_listener, chat_id)
+    )
+    self.listening.update({
+        chat_id: {"future": future, "filters": filters}
+    })
+    return await asyncio.wait_for(future, timeout)
+
+Client.listen = patched_listen
 import sys
 from datetime import datetime
 from config import *
@@ -60,17 +102,17 @@ class Bot(Client):
             except Exception as e:
                 self.LOGGER(__name__).warning(e)
                 self.LOGGER(__name__).warning(f"Make Sure bot is Admin in DB Channel, and Double check the CHANNEL_ID Value, Current Value {CHANNEL_ID}")
-                self.LOGGER(__name__).info("\nBot failed to initialize correctly. Join https://t.me/AnimeSenpaiWorld for support")
+                self.LOGGER(__name__).info("\nBot failed to initialize correctly. Join https://t.me/UNRATED_CODER for support")
         else:
             self.LOGGER(__name__).warning("CHANNEL_ID is not set. Bot will not be able to store/retrieve files.")
 
         self.set_parse_mode(ParseMode.HTML)
-        self.LOGGER(__name__).info(f"Bot Running..!\n\nCreated by \n@PyroSznpai")
-        self.LOGGER(__name__).info(f"""BOT DEPLOYED BY @PyroSznpai""")
+        self.LOGGER(__name__).info(f"Bot Running..!\n\nCreated by \n@UNRATED_CODER")
+        self.LOGGER(__name__).info(f"""BOT DEPLOYED BY @UNRATED_CODER""")
 
         self.set_parse_mode(ParseMode.HTML)
         self.username = usr_bot_me.username
-        self.LOGGER(__name__).info(f"Bot Running..! Made by @PyroSznpai")
+        self.LOGGER(__name__).info(f"Bot Running..! Made by @UNRATED_CODER")
 
 
         try:
@@ -80,6 +122,7 @@ class Bot(Client):
                 BotCommand("help", "sʜᴏᴡs ᴛʜᴇ sᴜᴘᴘᴏʀᴛ/ʜᴇʟᴘ ᴍᴇssᴀɢᴇ"),
                 BotCommand("commands", "ʟɪsᴛs ᴀʟʟ ᴀᴠᴀɪʟᴀʙʟᴇ ʙᴏᴛ ᴄᴏᴍᴍᴀɴᴅs"),
                 BotCommand("stats", "sʜᴏᴡs ʙᴏᴛ sᴛᴀᴛɪsᴛɪᴄs"),
+                BotCommand("ping", "ᴄʜᴇᴄᴋs ᴛʜᴇ ʙᴏᴛ's ᴘɪɴɢ ʟᴀᴛᴇɴᴄʏ"),
                 BotCommand("users", "sʜᴏᴡs ᴛʜᴇ ᴛᴏᴛᴀʟ ᴜsᴇʀ ᴄᴏᴜɴᴛ"),
                 BotCommand("add_admin", "ᴀᴅᴅs ᴀ ɴᴇᴡ ᴀᴅᴍɪɴ ᴜsᴇʀ"),
                 BotCommand("admins", "ʟɪsᴛs ᴀʟʟ ᴀᴄᴛɪᴠᴇ ᴀᴅᴍɪɴ ɪᴅs"),
@@ -106,7 +149,7 @@ class Bot(Client):
         except Exception as e:
             self.LOGGER(__name__).warning(f"Error setting bot commands: {e}")
 
-        try: await self.send_message(OWNER_ID, text = f"<b><blockquote> Bᴏᴛ Rᴇsᴛᴀʀᴛᴇᴅ by @PyroSznpai</blockquote></b>")
+        try: await self.send_message(OWNER_ID, text = f"<b><blockquote> Bᴏᴛ Rᴇsᴛᴀʀᴛᴇᴅ by @UNRATED_CODER</blockquote></b>")
         except: pass
 
     async def stop(self, *args):
