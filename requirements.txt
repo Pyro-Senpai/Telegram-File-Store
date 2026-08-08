@@ -1,6 +1,6 @@
 Pyrofork==2.3.45
 TgCrypto
-pyromod==2.0
+pyromod==1.5
 schedule
 APscheduler
 pymongo
